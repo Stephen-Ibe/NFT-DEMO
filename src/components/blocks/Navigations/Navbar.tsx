@@ -22,43 +22,23 @@ const Navbar = () => {
     const [opened, setOpened] = useState<boolean>(false);
 
     return (
-        <header className="nft--container top--nav">
-            <nav className="top--nav-logo">
-                <Link to="!#">NFT.</Link>
-            </nav>
-            <form className="sm:w-6/12">
-                <TextInput
-                    icon={<FaSearch size="1rem" />}
-                    placeholder="Search NFT..."
-                />
-            </form>
-            <nav className="hidden md:block">
-                <ul className="top--nav-items">
-                    {NavLinks.map(({ id, name, url }: NavLinksTypes) => (
-                        <li key={id}>
-                            <NavLink
-                                to={url}
-                                className={({ isActive }) =>
-                                    isActive ? "isActive" : undefined
-                                }
-                            >
-                                {name}
-                            </NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-            <nav className="md:hidden px-4">
-                <Burger
-                    opened={opened}
-                    onClick={() => setOpened(prevState => !prevState)}
-                />
-            </nav>
-            {opened && (
-                <nav className="mobile--nav">
-                    <ul className="">
+        <header className="shadow">
+            <section className="top--nav nft--container">
+                <nav>
+                    <h1 className="top--nav-logo">
+                        <Link to="!#">NFT.</Link>
+                    </h1>
+                </nav>
+                <form className="sm:w-6/12">
+                    <TextInput
+                        icon={<FaSearch size="1rem" />}
+                        placeholder="Search NFT..."
+                    />
+                </form>
+                <nav className="hidden md:block">
+                    <ul className="top--nav-items">
                         {NavLinks.map(({ id, name, url }: NavLinksTypes) => (
-                            <li key={id} className="border">
+                            <li key={id}>
                                 <NavLink
                                     to={url}
                                     className={({ isActive }) =>
@@ -71,7 +51,35 @@ const Navbar = () => {
                         ))}
                     </ul>
                 </nav>
-            )}
+                <nav className="md:hidden px-4">
+                    <Burger
+                        opened={opened}
+                        onClick={() => setOpened(prevState => !prevState)}
+                    />
+                </nav>
+                {opened && (
+                    <nav className="mobile--nav">
+                        <ul className="">
+                            {NavLinks.map(
+                                ({ id, name, url }: NavLinksTypes) => (
+                                    <li key={id} className="border">
+                                        <NavLink
+                                            to={url}
+                                            className={({ isActive }) =>
+                                                isActive
+                                                    ? "isActive"
+                                                    : undefined
+                                            }
+                                        >
+                                            {name}
+                                        </NavLink>
+                                    </li>
+                                )
+                            )}
+                        </ul>
+                    </nav>
+                )}
+            </section>
         </header>
     );
 };
