@@ -2,7 +2,7 @@ import React from "react";
 import { NFTDataType } from "../../../types";
 
 type Props = {
-    nft: NFTDataType;
+    nft: Readonly<NFTDataType>;
 };
 
 const NFTCard = ({ nft }: Props) => (
