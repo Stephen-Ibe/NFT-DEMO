@@ -31,6 +31,7 @@
         "import"
     ],
     "rules": {
+        "react/no-unused-prop-types": "off",
         "import/no-useless-path-segments": [
             "error",
             {

@@ -4,34 +4,78 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  *,*::before,*::after{
+@layer base {
+
+  *,
+  *::before,
+  *::after {
     margin: unset;
     padding: unset;
     box-sizing: border-box;
     scroll-behavior: smooth;
   }
 
-  html, body{
-    @apply bg-slate-100;
+  html,
+  body {
     font-family: 'Poppins', sans-serif;
   }
-}
 
-@layer components{
-  .btn{
-    @apply rounded px-4 py-3;
+  .m {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
 
-@layer utilities{
+@layer components {
+  .btn {
+    @apply rounded px-4 py-3;
+  }
+
+  /* Top Nav */
+  .top--nav {
+    @apply flex items-center justify-between border h-16 px-4;
+  }
+
+  .top--nav-logo {
+    @apply px-4 text-3xl font-bold;
+  }
+
+  .top--nav-items {
+    @apply flex items-center justify-evenly space-x-10 px-4;
+  }
+
+  .top--nav-items li a {
+    @apply text-sm lg:text-base;
+    position: relative;
+    text-decoration: none;
+    padding: 5px;
+  }
+  .mobile--nav {
+    @apply fixed top-16 left-0 h-full w-full z-30 bg-white border;
+  }
+
+  /* End of Top Nav */
+}
+
+@layer utilities {
+  .nft--container {
+    @apply container mx-auto;
+  }
+
+  .nft--section {
+    @apply py-16 sm: py-24;
+  }
+
   .not--found {
     @apply h-screen flex justify-center items-center flex-col;
   }
-  .not--found h1{
+
+  .not--found h1 {
     @apply text-8xl;
   }
-  .not--found button{
+
+  .not--found button {
     @apply border px-10;
   }
 }

@@ -1,14 +1,45 @@
+/* eslint-disable react/no-unused-prop-types */
 import React, { useState } from "react";
 import { Burger } from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+type NavLinksTypes = {
+    id: number;
+    name: string;
+    url: string;
+};
+
+const NavLinks = [
+    {
+        id: 0,
+        name: "Market",
+        url: "/market",
+    },
+] as NavLinksTypes[];
 
 const Navbar = () => {
     const [opened, setOpened] = useState<boolean>(false);
 
     return (
-        <header>
-            <nav>
+        <header className="nft--container top--nav">
+            <nav className="top--nav-logo">
                 <Link to="!#">NFT.</Link>
+            </nav>
+            <nav className="hidden md:block">
+                <ul className="top--nav-items">
+                    {NavLinks.map(({ id, name, url }: NavLinksTypes) => (
+                        <li key={id}>
+                            <NavLink
+                                to={url}
+                                className={({ isActive }) =>
+                                    isActive ? "isActive" : undefined
+                                }
+                            >
+                                {name}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
             </nav>
             <nav className="md:hidden px-4">
                 <Burger
@@ -16,6 +47,24 @@ const Navbar = () => {
                     onClick={() => setOpened(prevState => !prevState)}
                 />
             </nav>
+            {opened && (
+                <nav className="mobile--nav">
+                    <ul>
+                        {NavLinks.map(({ id, name, url }: NavLinksTypes) => (
+                            <li key={id}>
+                                <NavLink
+                                    to={url}
+                                    className={({ isActive }) =>
+                                        isActive ? "isActive" : undefined
+                                    }
+                                >
+                                    {name}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
         </header>
     );
 };
