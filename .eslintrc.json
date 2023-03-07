@@ -1,0 +1,92 @@
+{
+    "env": {
+        "es2021": true,
+        "browser": true, // Browser global variables like `window` etc.
+        "commonjs": true, // CommonJS global variables and CommonJS scoping.Allows require, exports and module.
+        "es6": true, // Enable all ECMAScript 6 features except for modules.
+        "jest": true, // Jest global variables like `it` etc.
+        "node": true // Defines things like process.env when generating through node
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "prettier",
+        "plugin:testing-library/react",
+        "plugin:import/typescript"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "testing-library",
+        "prettier",
+        "react",
+        "react-hooks",
+        "import"
+    ],
+    "rules": {
+      
+        "no-param-reassign": [2, { "props": false }],
+        "react/jsx-props-no-spreading": "off",
+        "dot-notation": "off",
+        "no-plusplus": 0,
+        "import/no-unresolved": [2, { "caseSensitive": false }],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".tsx", ".ts"]
+            }
+        ],
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "no-console": "warn",
+        "no-useless-catch": "off",
+        "react/prop-types": "off",
+        "no-prototype-builtins": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/interactive-supports-focus": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "import/extensions": "off",
+        "no-unused-vars": "off",
+        "no-nested-ternary": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_",
+                "args": "none"
+            }
+        ],
+        "jsx-a11y/label-has-associated-control": [
+            "error",
+            {
+                "required": {
+                    "some": ["nesting", "id"]
+                }
+            }
+        ],
+        "jsx-a11y/label-has-for": [
+            "error",
+            {
+                "required": {
+                    "some": ["nesting", "id"]
+                }
+            }
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    }
+}
