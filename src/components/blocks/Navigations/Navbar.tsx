@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unused-prop-types */
 import React, { useState } from "react";
-import { Burger } from "@mantine/core";
+import { Burger, TextInput } from "@mantine/core";
 import { Link, NavLink } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 type NavLinksTypes = {
     id: number;
@@ -25,6 +26,12 @@ const Navbar = () => {
             <nav className="top--nav-logo">
                 <Link to="!#">NFT.</Link>
             </nav>
+            <form className="sm:w-6/12">
+                <TextInput
+                    icon={<FaSearch size="1rem" />}
+                    placeholder="Search NFT..."
+                />
+            </form>
             <nav className="hidden md:block">
                 <ul className="top--nav-items">
                     {NavLinks.map(({ id, name, url }: NavLinksTypes) => (

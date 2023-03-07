@@ -7,7 +7,11 @@ import router from "./routes";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-        <MantineProvider withGlobalStyles withNormalizeCSS>
+        <MantineProvider
+            withGlobalStyles
+            withNormalizeCSS
+            theme={{ loader: "bars" }}
+        >
             <RouterProvider router={router} />
         </MantineProvider>
     </React.StrictMode>

@@ -5,7 +5,9 @@ import { Navbar } from "../blocks";
 const WebLayout = () => (
     <div className="body">
         <Navbar />
-        <Outlet />
+        <section className="border px-4 lg:px-10">
+            <Outlet />
+        </section>
     </div>
 );
 
