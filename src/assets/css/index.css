@@ -111,7 +111,7 @@
   }
 
   footer {
-    @apply text-center border-t py-4 flex items-center justify-center text-xs;
+    @apply text-center shadow-inner py-4 flex items-center justify-center text-xs;
     margin-top: auto;
   }
 }

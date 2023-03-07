@@ -17,7 +17,7 @@ const NavLinks = [
         url: "/market",
     },
     {
-        id: 0,
+        id: 1,
         name: "Developer",
         url: "/developer",
     },
@@ -27,7 +27,7 @@ const Navbar = () => {
     const [opened, setOpened] = useState<boolean>(false);
 
     return (
-        <header className="top--nav-header ">
+        <header className="top--nav-header">
             <section className="top--nav nft--container">
                 <nav>
                     <h1 className="top--nav-logo">
