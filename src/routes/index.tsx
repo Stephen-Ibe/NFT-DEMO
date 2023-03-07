@@ -1,6 +1,7 @@
 import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import WebLayout from "../components/layout/WebLayout";
+import { ErrorBoundary } from "../utils";
+import { WebLayout } from "../components";
 
 const Home = lazy(() => import("../pages/Home"));
 
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
                 ],
             },
         ],
+        errorElement: <ErrorBoundary />,
+        hasErrorBoundary: true,
     },
 ]);
 

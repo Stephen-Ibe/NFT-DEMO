@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router";
-import { Navbar } from "../../blocks";
+import { Navbar } from "../blocks";
 
 const WebLayout = () => (
     <div className="body">
