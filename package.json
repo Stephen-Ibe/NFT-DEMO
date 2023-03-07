@@ -1,55 +1,52 @@
 {
-  "name": "nft-demo",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "eslint --ext .ts,.tsx src",
-    "lint:fix": "eslint --fix",
-    "check:format": "prettier  --check \"src/*.+(ts|tsx|json)\"",
-    "format": "prettier  --write \"src/*.+(ts|tsx|json)\"",
-    "prepare": "husky install"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@mantine/core": "^6.0.0",
-    "@mantine/hooks": "^6.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.2"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.54.1",
-    "@vitejs/plugin-react": "^3.1.0",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.14.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "^3.5.3",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0",
-    "eslint-plugin-testing-library": "^5.3.1",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.1.2",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
-    "tailwindcss": "^3.2.7",
-    "typescript": "*",
-    "vite": "^4.1.0"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx,html,json|md}": [
-      "npm run lint:fix",
-      "npm run format"
-    ]
-  }
+    "name": "nft-demo",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "lint": "eslint --ext .ts,.tsx src",
+        "lint:fix": "eslint --fix",
+        "check:format": "prettier  --check \"src/*.+(ts|tsx|json)\"",
+        "format": "prettier  --write \"src/*.+(ts|tsx|json)\"",
+        "prepare": "husky install"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.10.6",
+        "@mantine/core": "^6.0.0",
+        "@mantine/hooks": "^6.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.8.2"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.27",
+        "@types/react-dom": "^18.0.10",
+        "@typescript-eslint/eslint-plugin": "^5.20.0",
+        "@typescript-eslint/parser": "^5.54.1",
+        "@vitejs/plugin-react": "^3.1.0",
+        "autoprefixer": "^10.4.13",
+        "eslint": "^8.14.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-import-resolver-typescript": "^3.5.3",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "4.0.0",
+        "eslint-plugin-react": "^7.29.4",
+        "eslint-plugin-react-hooks": "^4.4.0",
+        "eslint-plugin-testing-library": "^5.3.1",
+        "husky": "^8.0.0",
+        "lint-staged": "^13.1.2",
+        "postcss": "^8.4.21",
+        "prettier": "^2.8.4",
+        "tailwindcss": "^3.2.7",
+        "typescript": "*",
+        "vite": "^4.1.0"
+    },
+    "lint-staged": {
+        "src/**/*.{ts,tsx,html,json|md}": ["npm run lint", "npm run format"]
+    }
 }
