@@ -13,11 +13,13 @@
     padding: unset;
     box-sizing: border-box;
     scroll-behavior: smooth;
+
   }
 
   html,
   body {
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
   }
 
   .m {
@@ -75,7 +77,7 @@
   /* End of Top Nav */
   /* NFT Card */
   .nft--card{
-    @apply border h-[400px]  rounded-t-lg cursor-pointer;
+    @apply border h-[400px] rounded-t-lg cursor-pointer;
   }
   .nftcard--img-container{
     @apply h-[80%] relative rounded-t-lg;
@@ -111,7 +113,7 @@
   }
 
   footer {
-    @apply text-center shadow-inner py-4 flex items-center justify-center text-xs;
+    @apply text-center shadow-inner py-4 flex items-center justify-center text-xs fixed bottom-0 w-full bg-white;
     margin-top: auto;
   }
 }
