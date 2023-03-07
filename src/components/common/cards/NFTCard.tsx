@@ -1,7 +1,10 @@
 import React from "react";
+import { NFTDataType } from "../../../types";
 
-type Props = {};
+type Props = {
+    nft: NFTDataType;
+};
 
-const NFTCard = (props: Props) => <div>NFTCard</div>;
+const NFTCard = (nft: Props) => <div>NFTCard</div>;
 
 export default NFTCard;
