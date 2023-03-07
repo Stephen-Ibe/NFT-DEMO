@@ -13,6 +13,25 @@
   }
 
   html, body{
+    @apply bg-slate-100;
     font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components{
+  .btn{
+    @apply rounded px-4 py-3;
+  }
+}
+
+@layer utilities{
+  .not--found {
+    @apply h-screen flex justify-center items-center flex-col;
+  }
+  .not--found h1{
+    @apply text-8xl;
+  }
+  .not--found button{
+    @apply border px-10;
   }
 }
