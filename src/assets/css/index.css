@@ -71,6 +71,9 @@
   }
   /* End of Top Nav */
   /* NFT Card */
+  .nft--card{
+    @apply border h-[400px] w-[320px] rounded-t-lg cursor-pointer;
+  }
   .nftcard--img-container{
     @apply h-[80%] relative rounded-t-lg;
   }

@@ -11,7 +11,7 @@ const NFTCard = ({ nft }: Props) => (
             <img
                 src={nft?.image_original_url}
                 alt="nft__image"
-                className="absolute w-full h-full object-cover rounded-t-lg"
+                className="absolute w-full h-full object-contain rounded-t-lg"
             />
         </div>
         <div className="nft--card-details">
