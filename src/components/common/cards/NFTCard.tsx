@@ -3,10 +3,11 @@ import { NFTDataType } from "../../../types";
 
 type Props = {
     nft: Readonly<NFTDataType>;
+    showDetail(nft: Readonly<NFTDataType>): void;
 };
 
-const NFTCard = ({ nft }: Props) => (
-    <div className="nft--card">
+const NFTCard = ({ nft, showDetail }: Props) => (
+    <div className="nft--card" onClick={() => showDetail(nft)} role="button">
         <div className="nftcard--img-container">
             <img
                 src={nft?.image_original_url}
