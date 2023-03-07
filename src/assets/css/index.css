@@ -70,6 +70,17 @@
     @apply bg-zinc-300;
   }
   /* End of Top Nav */
+  /* NFT Card */
+  .nftcard--img-container{
+    @apply h-[80%] relative rounded-t-lg;
+  }
+  .nft--card-details{
+    @apply h-[20%] px-4 py-2;
+  }
+  .nft--card-details h3{
+    @apply font-semibold;
+  }
+  /* End of NFT Card */
 }
 
 @layer utilities {
