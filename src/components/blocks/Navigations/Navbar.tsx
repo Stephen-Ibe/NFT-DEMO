@@ -49,9 +49,9 @@ const Navbar = () => {
             </nav>
             {opened && (
                 <nav className="mobile--nav">
-                    <ul>
+                    <ul className="">
                         {NavLinks.map(({ id, name, url }: NavLinksTypes) => (
-                            <li key={id}>
+                            <li key={id} className="border">
                                 <NavLink
                                     to={url}
                                     className={({ isActive }) =>

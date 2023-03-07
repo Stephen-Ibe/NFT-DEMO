@@ -51,10 +51,20 @@
     text-decoration: none;
     padding: 5px;
   }
+
   .mobile--nav {
-    @apply fixed top-16 left-0 h-full w-full z-30 bg-white border;
+    @apply fixed top-16 left-0 h-full w-full z-30 bg-white md:hidden;
   }
 
+  .mobile--nav ul {
+    @apply flex flex-col items-center justify-evenly ;
+  }
+  .mobile--nav ul li{
+    @apply w-full text-center py-4 cursor-pointer;
+  }
+  .mobile--nav ul li:hover{
+    @apply bg-zinc-300;
+  }
   /* End of Top Nav */
 }
 
@@ -64,7 +74,7 @@
   }
 
   .nft--section {
-    @apply py-16 sm: py-24;
+    @apply py-16 sm:py-24;
   }
 
   .not--found {
