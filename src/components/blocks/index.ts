@@ -1,2 +1,2 @@
 export * from "./Navigations";
-export * from "./SkeletonLoaders";
+export { default as Footer } from "./Footer";

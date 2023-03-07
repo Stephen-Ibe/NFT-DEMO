@@ -159,13 +159,16 @@ const nft = {
 };
 
 const Home: FC = () => (
-    <div className="my-10 flex items-start h-screen">
-        <aside className="border hidden sm:block w-3/12">
+    <div className="flex items-start relative">
+        <aside className="border hidden sm:block w-3/12 p-4">
             <SideNav />
         </aside>
-        <main className="border w-full sm:w-9/12 p-4">
-            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
-                {[1, 2, 3, 4, 5].map(() => (
+        <main className="w-full sm:w-9/12 p-4 overflow-y-scroll lg:h-[1235px]">
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                    1, 2, 3, 4, 5, 5, 4, 3, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 2, 3,
+                    4, 5, 6,
+                ].map(() => (
                     <NFTCard nft={nft} />
                 ))}
             </section>

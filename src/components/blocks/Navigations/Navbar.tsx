@@ -27,7 +27,7 @@ const Navbar = () => {
     const [opened, setOpened] = useState<boolean>(false);
 
     return (
-        <header className="shadow">
+        <header className="top--nav-header ">
             <section className="top--nav nft--container">
                 <nav>
                     <h1 className="top--nav-logo">
