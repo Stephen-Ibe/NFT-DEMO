@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unused-prop-types */
 import React, { useState } from "react";
-import { Burger, TextInput } from "@mantine/core";
+import { Avatar, Burger, TextInput } from "@mantine/core";
 import { Link, NavLink } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaUser } from "react-icons/fa";
 
 type NavLinksTypes = {
     id: number;
@@ -15,6 +15,11 @@ const NavLinks = [
         id: 0,
         name: "Market",
         url: "/market",
+    },
+    {
+        id: 0,
+        name: "Developer",
+        url: "/developer",
     },
 ] as NavLinksTypes[];
 
@@ -49,6 +54,14 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
                         ))}
+                        <div className="top--nav-actions">
+                            <Avatar radius="xl" color="blue">
+                                <FaShoppingCart />
+                            </Avatar>
+                            <Avatar radius="xl">
+                                <FaUser />
+                            </Avatar>
+                        </div>
                     </ul>
                 </nav>
                 <nav className="md:hidden px-4">

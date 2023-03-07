@@ -34,22 +34,26 @@
 
   /* Top Nav */
   .top--nav {
-    @apply flex items-center justify-between h-16 px-4;
+    @apply flex items-center justify-between h-20 px-4;
   }
 
   .top--nav-logo {
-    @apply px-4 text-3xl font-bold;
+    @apply px-4 text-4xl font-bold;
   }
 
   .top--nav-items {
-    @apply flex items-center justify-evenly space-x-10 px-4;
+    @apply flex items-center justify-evenly space-x-4 px-4;
   }
 
   .top--nav-items li a {
-    @apply text-sm lg:text-base;
+    @apply text-sm font-semibold;
     position: relative;
     text-decoration: none;
     padding: 5px;
+  }
+
+  .top--nav-actions{
+    @apply space-x-4 hidden sm:flex items-center justify-evenly;
   }
 
   .mobile--nav {
