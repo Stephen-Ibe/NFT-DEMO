@@ -99,8 +99,19 @@
   .nft--card-details p {
     @apply text-sm
   }
-
   /* End of NFT Card */
+  .product--detail{
+    @apply flex h-full space-x-4;
+  }
+  .product--detail-left{
+    @apply w-4/12;
+  }
+  .product--detail-leff-container{
+    @apply relative h-[250px] w-full;
+  }
+  /* NFT Product Detail */
+
+  /* End of NFT Product Detail */
 }
 
 @layer utilities {

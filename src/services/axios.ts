@@ -7,7 +7,7 @@ import axios, {
 const instance = axios.create({
     baseURL: "https://opensea13.p.rapidapi.com",
     headers: {
-        "X-RapidAPI-Key": "b48ff04a7bmsh47c7f3264223a12p153687jsnaead187763f1", // b48ff04a7bmsh47c7f3264223a12p153687jsnaead187763f1
+        "X-RapidAPI-Key": "b48ff04a7bmsh47c7f3264223a12p153687jsnaead187763f1", // test API-Key b48ff04a7bmsh47c7f3264223a12p153687jsnaead187763f1
         "X-RapidAPI-Host": "opensea13.p.rapidapi.com",
         "Content-Type": "application/json",
     },

@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import {
     Button,
+    CopyButton,
     Divider,
     Modal,
     Tooltip,
@@ -33,9 +34,9 @@ const ProductDetail = ({ close, nft }: Props) => {
                 blur: 5,
             }}
         >
-            <section className="flex h-full space-x-4">
-                <div className="img w-4/12">
-                    <div className="relative h-[250px] w-full">
+            <section className="product--detail">
+                <div className="product--detail-left">
+                    <div className="product--detail-leff-container">
                         <img
                             src={nft?.image_url ?? FallbackImg}
                             alt="nft__image"
@@ -71,7 +72,8 @@ const ProductDetail = ({ close, nft }: Props) => {
                 </div>
                 <div className="w-8/12 px-2  flex flex-col justify-between">
                     <div>
-                        <p className="text-justify text-base">
+                        <h4 className="font-semibold text-lg">Description</h4>
+                        <p className="text-justify text-sm">
                             {nft?.description ??
                                 "This NFT has no description attached to it."}
                         </p>
@@ -111,9 +113,10 @@ const ProductDetail = ({ close, nft }: Props) => {
                             </h4>
                             <div>
                                 <p className="text-justify capitalize text-sm">
-                                    {(nft?.collection?.description ??
+                                    {(nft?.collection?.short_description ??
                                         "No Collection Description") ||
-                                        (nft?.collection?.description === "" &&
+                                        (nft?.collection?.short_description ===
+                                            "" &&
                                             "No Collection Description")}
                                 </p>
                             </div>
@@ -126,9 +129,24 @@ const ProductDetail = ({ close, nft }: Props) => {
                             <div className="flex flex-col gap-y-2">
                                 <section className="flex justify-between items-center text-sm">
                                     <h6>Address</h6>
-                                    <p className="tt">
-                                        {nft?.asset_contract?.address}
-                                    </p>
+                                    <CopyButton
+                                        value={nft?.asset_contract?.address}
+                                    >
+                                        {({ copied, copy }) => (
+                                            <div
+                                                className="tt"
+                                                onClick={copy}
+                                                role="button"
+                                            >
+                                                {`${
+                                                    copied
+                                                        ? "Address Copied"
+                                                        : nft?.asset_contract
+                                                              ?.address
+                                                }`}
+                                            </div>
+                                        )}
+                                    </CopyButton>
                                 </section>
                                 <section className="flex justify-between items-center text-sm">
                                     <h6>Contract Type</h6>

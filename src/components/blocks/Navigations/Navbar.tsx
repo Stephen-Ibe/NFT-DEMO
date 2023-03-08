@@ -31,7 +31,7 @@ const Navbar = () => {
             <section className="top--nav nft--container">
                 <nav>
                     <h1 className="top--nav-logo">
-                        <Link to="!#">NFT.</Link>
+                        <Link to="/">NFT.</Link>
                     </h1>
                 </nav>
                 <form className="sm:w-6/12">
