@@ -35,9 +35,10 @@
   }
 
   /* Top Nav */
-  .top--nav-header{
+  .top--nav-header {
     @apply shadow fixed w-full sm:relative z-30 bg-white;
   }
+
   .top--nav {
     @apply flex items-center justify-between h-20 px-4;
   }
@@ -57,7 +58,7 @@
     padding: 5px;
   }
 
-  .top--nav-actions{
+  .top--nav-actions {
     @apply space-x-4 hidden sm:flex items-center justify-evenly;
   }
 
@@ -66,31 +67,39 @@
   }
 
   .mobile--nav ul {
-    @apply flex flex-col items-center justify-evenly ;
+    @apply flex flex-col items-center justify-evenly;
   }
-  .mobile--nav ul li{
+
+  .mobile--nav ul li {
     @apply w-full text-center py-4 cursor-pointer;
   }
-  .mobile--nav ul li:hover{
+
+  .mobile--nav ul li:hover {
     @apply bg-zinc-300;
   }
+
   /* End of Top Nav */
   /* NFT Card */
-  .nft--card{
+  .nft--card {
     @apply border h-[400px] rounded-t-lg cursor-pointer;
   }
-  .nftcard--img-container{
+
+  .nftcard--img-container {
     @apply h-[80%] relative rounded-t-lg;
   }
-  .nft--card-details{
+
+  .nft--card-details {
     @apply h-[20%] px-4 py-2;
   }
-  .nft--card-details h3{
+
+  .nft--card-details h3 {
     @apply font-semibold text-base;
   }
-  .nft--card-details p{
+
+  .nft--card-details p {
     @apply text-sm
   }
+
   /* End of NFT Card */
 }
 
@@ -113,6 +122,15 @@
 
   .not--found button {
     @apply border px-10;
+  }
+
+
+
+  .tt {
+    @apply w-4/12 capitalize ;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   footer {

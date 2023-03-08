@@ -43,7 +43,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="flex items-start relative container mx-auto">
+            <div className="flex items-start relative container mx-auto overflow-hidden">
                 <aside className="border hidden sm:block w-2/12 p-4">
                     <SideNav />
                 </aside>

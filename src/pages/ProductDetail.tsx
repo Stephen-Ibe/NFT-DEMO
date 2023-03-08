@@ -1,5 +1,11 @@
 import React, { memo } from "react";
-import { Button, Modal, Tooltip, useMantineTheme } from "@mantine/core";
+import {
+    Button,
+    Divider,
+    Modal,
+    Tooltip,
+    useMantineTheme,
+} from "@mantine/core";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { NFTDataType } from "../types";
 import { FallbackImg } from "../assets";
@@ -24,7 +30,7 @@ const ProductDetail = ({ close, nft }: Props) => {
                         ? theme.colors.dark[9]
                         : theme.colors.gray[2],
                 opacity: 0.55,
-                blur: 3,
+                blur: 5,
             }}
         >
             <section className="flex h-full space-x-4">
@@ -43,7 +49,7 @@ const ProductDetail = ({ close, nft }: Props) => {
                     </div>
                     <div className="my-2 py-2">
                         <h3 className="font-semibold text-base">{nft?.name}</h3>
-                        <p className="text-sm">
+                        <p className="text-xs mt-2">
                             Owned by{" "}
                             <a
                                 href={nft?.collection?.external_url}
@@ -52,10 +58,10 @@ const ProductDetail = ({ close, nft }: Props) => {
                                 {nft?.collection?.name}
                             </a>
                         </p>
-                        <p className="text-sm">
+                        <p className="text-xs">
                             Created by{" "}
                             <a
-                                href={nft?.collection?.external_url}
+                                href={nft?.creator?.profile_img_url}
                                 className="text-blue-600"
                             >
                                 {nft?.creator?.user?.username ?? "Anonymous"}
@@ -69,11 +75,10 @@ const ProductDetail = ({ close, nft }: Props) => {
                             {nft?.description ??
                                 "This NFT has no description attached to it."}
                         </p>
-                        {nft?.traits.length > 0 && (
-                            <div className="my-4">
-                                <h4 className="font-semibold text-lg">
-                                    Traits
-                                </h4>
+
+                        <div className="my-4">
+                            <h4 className="font-semibold text-lg">Traits</h4>
+                            {nft?.traits.length > 0 ? (
                                 <div className="grid grid-cols-3 gap-4 my-2">
                                     {nft?.traits.map(trait => (
                                         <div
@@ -95,22 +100,55 @@ const ProductDetail = ({ close, nft }: Props) => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
-                        )}
+                            ) : (
+                                <p>No traits available for this NFT.</p>
+                            )}
+                        </div>
+                        <Divider my="sm" />
                         <div className="my-4">
-                            <h4 className="font-semibold text-lg">
-                                Collection
+                            <h4 className="font-semibold text-lg my-2">
+                                Collection - ({nft?.collection?.name})
                             </h4>
                             <div>
-                                <p>Collection Name: {nft?.collection?.name}</p>
-                                <p>
-                                    {nft?.collection?.description ??
-                                        "No Collection Description"}
+                                <p className="text-justify capitalize text-sm">
+                                    {(nft?.collection?.description ??
+                                        "No Collection Description") ||
+                                        (nft?.collection?.description === "" &&
+                                            "No Collection Description")}
                                 </p>
                             </div>
                         </div>
+                        <Divider my="sm" />
+                        <div className="my-4">
+                            <h4 className="font-semibold text-lg my-2">
+                                Asset Details
+                            </h4>
+                            <div className="flex flex-col gap-y-2">
+                                <section className="flex justify-between items-center text-sm">
+                                    <h6>Address</h6>
+                                    <p className="tt">
+                                        {nft?.asset_contract?.address}
+                                    </p>
+                                </section>
+                                <section className="flex justify-between items-center text-sm">
+                                    <h6>Contract Type</h6>
+                                    <p className="tt justify-self-end">
+                                        {
+                                            nft?.asset_contract
+                                                ?.asset_contract_type
+                                        }
+                                    </p>
+                                </section>
+                                <section className="flex justify-between items-center text-sm">
+                                    <h6>Name</h6>
+                                    <p className="justify-self-end">
+                                        {nft?.asset_contract?.name}
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
                     </div>
-                    <div className="self-end space-x-4">
+                    <div className="self-end space-x-4 mt-4">
                         <Button variant="outline" color="green">
                             Purchase NFT
                         </Button>
