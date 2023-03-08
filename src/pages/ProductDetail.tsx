@@ -57,27 +57,29 @@ const ProductDetail = ({ close, nft }: Props) => {
                     <p className="text-justify text-sm">
                         {nft?.asset_contract?.description}
                     </p>
-                    <div className="my-4">
-                        <h4 className="font-semibold text-lg">Traits</h4>
-                        <div className="grid grid-cols-3 gap-4 my-2">
-                            {nft?.traits.map(trait => (
-                                <div className="border text-center p-4 rounded-lg">
-                                    <p className="uppercase text-xs">
-                                        {trait.trait_type}
-                                    </p>
-                                    <h5 className="capitalize font-semibold">
-                                        {trait.value}
-                                    </h5>
-                                    <p className="text-xs">
-                                        <span className="font-semibold">
-                                            {trait.trait_count}
-                                        </span>{" "}
-                                        people have this trait
-                                    </p>
-                                </div>
-                            ))}
+                    {nft?.traits.length > 0 && (
+                        <div className="my-4">
+                            <h4 className="font-semibold text-lg">Traits</h4>
+                            <div className="grid grid-cols-3 gap-4 my-2">
+                                {nft?.traits.map(trait => (
+                                    <div className="border text-center p-4 rounded-lg">
+                                        <p className="uppercase text-xs">
+                                            {trait.trait_type}
+                                        </p>
+                                        <h5 className="capitalize font-semibold">
+                                            {trait.value}
+                                        </h5>
+                                        <p className="text-xs">
+                                            <span className="font-semibold">
+                                                {trait.trait_count}
+                                            </span>{" "}
+                                            people have this trait
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </section>
         </Modal>

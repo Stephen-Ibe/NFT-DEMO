@@ -10,7 +10,7 @@ const NFTCard = ({ nft, showDetail }: Props) => (
     <div className="nft--card" onClick={() => showDetail(nft)} role="button">
         <div className="nftcard--img-container">
             <img
-                src={nft?.image_original_url}
+                src={nft?.image_url}
                 alt="nft__image"
                 className="absolute w-full h-full object-cover rounded-t-lg"
             />
