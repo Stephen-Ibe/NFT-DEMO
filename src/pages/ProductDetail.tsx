@@ -159,9 +159,13 @@ const ProductDetail = ({ close, nft }: Props) => {
                         </div>
                     </div>
                     <div className="self-end space-x-4 mt-4">
-                        <Button variant="outline" color="green">
-                            Purchase NFT
-                        </Button>
+                        <a
+                            href={`https://opensea.io/assets/ethereum/${nft.asset_contract.address}/${nft.token_id}`}
+                        >
+                            <Button variant="outline" color="green">
+                                Purchase NFT
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </section>
