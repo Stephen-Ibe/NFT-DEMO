@@ -100,7 +100,9 @@
     @apply text-sm
   }
   /* End of NFT Card */
-  .product--detail{
+
+  /* NFT Product Detail */
+ .product--detail{
     @apply flex h-full space-x-4;
   }
   .product--detail-left{
@@ -109,8 +111,15 @@
   .product--detail-leff-container{
     @apply relative h-[250px] w-full;
   }
-  /* NFT Product Detail */
-
+  .product--detail-leff-container img{
+    @apply absolute w-full h-full object-cover rounded-t-lg;
+  }
+  .product--detail-leff-container a{
+    @apply absolute top-2 right-2 rounded-full p-2 bg-slate-300 cursor-pointer;
+  }
+  .product--detail-right{
+    @apply w-8/12 px-2  flex flex-col justify-between;
+  }
   /* End of NFT Product Detail */
 }
 

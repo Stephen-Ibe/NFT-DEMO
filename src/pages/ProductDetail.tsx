@@ -40,11 +40,9 @@ const ProductDetail = ({ close, nft }: Props) => {
                         <img
                             src={nft?.image_url ?? FallbackImg}
                             alt="nft__image"
-                            className="absolute w-full h-full object-cover rounded-t-lg"
                         />
                         <Tooltip label="View original media" withArrow>
                             <a
-                                className="absolute top-2 right-2 rounded-full p-2 bg-slate-300 cursor-pointer"
                                 href={
                                     nft?.external_link ?? nft?.image_preview_url
                                 }
@@ -75,7 +73,7 @@ const ProductDetail = ({ close, nft }: Props) => {
                         </p>
                     </div>
                 </div>
-                <div className="w-8/12 px-2  flex flex-col justify-between">
+                <div className="product--detail-right">
                     <div>
                         <h4 className="font-semibold text-lg">Description</h4>
                         <p className="text-justify text-sm">
