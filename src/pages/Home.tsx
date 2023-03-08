@@ -71,7 +71,7 @@ const Home = () => {
                 </div>
             )}
             <div className="flex items-start relative container mx-auto overflow-hidden">
-                <aside className="border hidden sm:block w-2/12 p-4">
+                <aside className="hidden sm:block w-2/12 p-4">
                     <SideNav />
                 </aside>
                 <main className="w-full sm:w-10/12 p-4 overflow-y-scroll h-screen pb-44 ">
