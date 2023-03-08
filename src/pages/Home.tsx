@@ -71,10 +71,10 @@ const Home = () => {
                 </div>
             )}
             <div className="flex items-start relative container mx-auto overflow-hidden">
-                <aside className="hidden sm:block w-2/12 p-4">
+                <aside className="hidden lg:block w-2/12 p-4">
                     <SideNav />
                 </aside>
-                <main className="w-full sm:w-10/12 p-4 overflow-y-scroll h-screen pb-44 ">
+                <main className="w-full lg:w-10/12 p-4 overflow-y-scroll h-screen pb-44 ">
                     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {loading ? (
                             <NFTCardSkeleton />

@@ -6,7 +6,7 @@ import { MdOutlinePriceChange } from "react-icons/md";
 import { GoDash } from "react-icons/go";
 
 type AllSidebarLinksType = {
-    id: number;
+    uid: number;
     title: string;
     icon: ReactNode;
     children: { id: number; label: string }[];
@@ -14,7 +14,7 @@ type AllSidebarLinksType = {
 
 const AllSidebarLinks: AllSidebarLinksType[] = [
     {
-        id: 0,
+        uid: 0,
         title: "Collections",
         icon: <HiCollection size="1rem" />,
         children: [
@@ -23,7 +23,7 @@ const AllSidebarLinks: AllSidebarLinksType[] = [
         ],
     },
     {
-        id: 1,
+        uid: 1,
         title: "Chains",
         icon: <GiCrossedChains size="1rem" />,
         children: [
@@ -33,7 +33,7 @@ const AllSidebarLinks: AllSidebarLinksType[] = [
         ],
     },
     {
-        id: 2,
+        uid: 2,
         title: "Price",
         icon: <MdOutlinePriceChange size="1rem" />,
         children: [
@@ -47,8 +47,13 @@ const SideNav = () => (
     <div>
         <Box>
             {AllSidebarLinks.map(
-                ({ children, icon, title }: AllSidebarLinksType) => (
-                    <NavLink label={title} icon={icon} childrenOffset={28}>
+                ({ children, icon, uid, title }: AllSidebarLinksType) => (
+                    <NavLink
+                        label={title}
+                        icon={icon}
+                        childrenOffset={28}
+                        key={uid}
+                    >
                         {children.map(
                             ({ id, label }: { id: number; label: string }) => (
                                 <NavLink
