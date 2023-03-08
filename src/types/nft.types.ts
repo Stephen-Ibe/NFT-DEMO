@@ -1,4 +1,4 @@
-type ASSETCONTRACTTYPE = {
+type AssetContractType = {
     only_proxied_transfers: boolean;
     opensea_version: null;
     created_date: string;
@@ -97,7 +97,7 @@ export type NFTDataType = {
     rarity_data: null;
     supports_wyvern: boolean;
     image_url: string;
-    asset_contract: ASSETCONTRACTTYPE;
+    asset_contract: AssetContractType;
     listing_date: null;
     seaport_sell_orders: null;
     top_bid: null;

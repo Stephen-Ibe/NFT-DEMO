@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NFTCard, NFTCardSkeleton, SideNav } from "../components";
-import { nft } from "../utils";
+// import { nft } from "../utils";
 import { NFTDataType } from "../types";
 import ProductDetail from "./ProductDetail";
+import { getAssetsApi } from "../services";
 
 const Home = () => {
+    const [loading, setLoading] = useState<boolean>(false);
+    const [nfts, setNfts] = useState<NFTDataType[]>([]);
     const [selectedNft, setSelectedNft] =
         useState<Readonly<NFTDataType> | null>(null);
 
@@ -16,6 +19,28 @@ const Home = () => {
         setSelectedNft(null);
     };
 
+    const fetchAllAssets = async () => {
+        setLoading(true);
+        try {
+            const res = await getAssetsApi();
+
+            setNfts(res.assets);
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        let mounted = true;
+
+        if (mounted) fetchAllAssets();
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
     return (
         <>
             <div className="flex items-start relative container mx-auto">
@@ -24,13 +49,13 @@ const Home = () => {
                 </aside>
                 <main className="w-full sm:w-10/12 p-4 overflow-y-scroll h-screen pb-44 ">
                     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            1, 2, 3, 4, 2, 3, 2, 6, 7, 2, 1, 2, 3, 4, 5, 6, 7,
-                            8, 6, 4, 3, 4, 5, 1,
-                        ].map(() => (
-                            <NFTCard nft={nft} showDetail={showDetail} />
-                        ))}
-                        <NFTCardSkeleton />
+                        {loading ? (
+                            <NFTCardSkeleton />
+                        ) : (
+                            nfts.map(nft => (
+                                <NFTCard nft={nft} showDetail={showDetail} />
+                            ))
+                        )}
                     </section>
                 </main>
             </div>
