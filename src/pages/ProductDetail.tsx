@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { Modal, Tooltip, useMantineTheme } from "@mantine/core";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { NFTDataType } from "../types";
+import { FallbackImg } from "../assets";
 
 type Props = {
     close(): void;
@@ -30,7 +31,7 @@ const ProductDetail = ({ close, nft }: Props) => {
                 <div className="img w-4/12">
                     <div className="relative h-[250px] w-full">
                         <img
-                            src={nft?.image_url}
+                            src={nft?.image_url ?? FallbackImg}
                             alt="nft__image"
                             className="absolute w-full h-full object-cover rounded-t-lg"
                         />
@@ -54,15 +55,16 @@ const ProductDetail = ({ close, nft }: Props) => {
                     </div>
                 </div>
                 <div className="w-8/12 px-2">
-                    <p className="text-justify text-sm">
-                        {nft?.asset_contract?.description}
-                    </p>
+                    <p className="text-justify text-sm">{nft?.description}</p>
                     {nft?.traits.length > 0 && (
                         <div className="my-4">
                             <h4 className="font-semibold text-lg">Traits</h4>
                             <div className="grid grid-cols-3 gap-4 my-2">
                                 {nft?.traits.map(trait => (
-                                    <div className="border text-center p-4 rounded-lg">
+                                    <div
+                                        className="border text-center p-4 rounded-lg"
+                                        key={trait.value}
+                                    >
                                         <p className="uppercase text-xs">
                                             {trait.trait_type}
                                         </p>
