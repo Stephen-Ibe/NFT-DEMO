@@ -4,8 +4,10 @@ import { NFTCard, NFTCardSkeleton, SideNav } from "../components";
 import { NFTDataType } from "../types";
 import ProductDetail from "./ProductDetail";
 import { getAssetsApi } from "../services";
+import { useMockData } from "../hooks";
 
 const Home = () => {
+    const mockData = useMockData(12);
     const [loading, setLoading] = useState<boolean>(false);
     const [hasError, setHasError] = useState<Record<
         string,
@@ -77,7 +79,9 @@ const Home = () => {
                 <main className="w-full lg:w-10/12 p-4 overflow-y-scroll h-screen pb-44 ">
                     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {loading ? (
-                            <NFTCardSkeleton />
+                            mockData.map(({ id }) => (
+                                <NFTCardSkeleton key={id} />
+                            ))
                         ) : nfts.length > 0 ? (
                             nfts.map(nft => (
                                 <NFTCard
