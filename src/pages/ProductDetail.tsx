@@ -43,9 +43,14 @@ const ProductDetail = ({ close, nft }: Props) => {
                             className="absolute w-full h-full object-cover rounded-t-lg"
                         />
                         <Tooltip label="View original media" withArrow>
-                            <div className="absolute top-2 right-2 rounded-full p-2 bg-slate-300 cursor-pointer">
+                            <a
+                                className="absolute top-2 right-2 rounded-full p-2 bg-slate-300 cursor-pointer"
+                                href={
+                                    nft?.external_link ?? nft?.image_preview_url
+                                }
+                            >
                                 <FaExternalLinkAlt size={12} />
-                            </div>
+                            </a>
                         </Tooltip>
                     </div>
                     <div className="my-2 py-2">
