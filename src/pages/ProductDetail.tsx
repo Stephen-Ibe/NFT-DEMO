@@ -132,7 +132,7 @@ const ProductDetail = ({ close, nft }: Props) => {
                                 </section>
                                 <section className="flex justify-between items-center text-sm">
                                     <h6>Contract Type</h6>
-                                    <p className="tt justify-self-end">
+                                    <p className="capitalize justify-self-end">
                                         {
                                             nft?.asset_contract
                                                 ?.asset_contract_type
@@ -143,6 +143,16 @@ const ProductDetail = ({ close, nft }: Props) => {
                                     <h6>Name</h6>
                                     <p className="justify-self-end">
                                         {nft?.asset_contract?.name}
+                                    </p>
+                                </section>
+                                <section className="flex justify-between items-center text-sm">
+                                    <h6>Seller&apos;s Earning</h6>
+                                    <p className="justify-self-end">
+                                        {`${
+                                            // eslint-disable-next-line no-unsafe-optional-chaining
+                                            nft?.asset_contract
+                                                ?.seller_fee_basis_points / 100
+                                        }`}
                                     </p>
                                 </section>
                             </div>
