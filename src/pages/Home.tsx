@@ -53,7 +53,11 @@ const Home = () => {
                             <NFTCardSkeleton />
                         ) : (
                             nfts.map(nft => (
-                                <NFTCard nft={nft} showDetail={showDetail} />
+                                <NFTCard
+                                    nft={nft}
+                                    showDetail={showDetail}
+                                    key={nft.id}
+                                />
                             ))
                         )}
                     </section>
