@@ -1,5 +1,6 @@
-import React, { memo, useEffect, useState } from "react";
-import { Modal, useMantineTheme } from "@mantine/core";
+import React, { memo } from "react";
+import { Modal, Tooltip, useMantineTheme } from "@mantine/core";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { NFTDataType } from "../types";
 
 type Props = {
@@ -8,21 +9,14 @@ type Props = {
 };
 
 const ProductDetail = ({ close, nft }: Props) => {
-    const [name, setName] = useState<string>("");
-
     const theme = useMantineTheme();
-
-    useEffect(() => {
-        setName(nft.name);
-        return () => setName("");
-    });
 
     return (
         <Modal
             opened
             onClose={close}
-            title={name}
             size="55rem"
+            withCloseButton={false}
             overlayProps={{
                 color:
                     theme.colorScheme === "dark"
@@ -33,13 +27,18 @@ const ProductDetail = ({ close, nft }: Props) => {
             }}
         >
             <section className="flex h-full space-x-4">
-                <div className="img w-4/12 ">
+                <div className="img w-4/12">
                     <div className="relative h-[250px] w-full">
                         <img
-                            src={nft?.image_original_url}
+                            src={nft?.image_url}
                             alt="nft__image"
                             className="absolute w-full h-full object-cover rounded-t-lg"
                         />
+                        <Tooltip label="View original media" withArrow>
+                            <div className="absolute top-2 right-2 rounded-full p-2 bg-slate-300 cursor-pointer">
+                                <FaExternalLinkAlt size={12} />
+                            </div>
+                        </Tooltip>
                     </div>
                     <div className="my-2 py-2">
                         <h3 className="font-semibold text-base">{nft?.name}</h3>
@@ -70,8 +69,10 @@ const ProductDetail = ({ close, nft }: Props) => {
                                         {trait.value}
                                     </h5>
                                     <p className="text-xs">
-                                        {trait.trait_count} people have this
-                                        trait
+                                        <span className="font-semibold">
+                                            {trait.trait_count}
+                                        </span>{" "}
+                                        people have this trait
                                     </p>
                                 </div>
                             ))}
