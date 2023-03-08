@@ -14,12 +14,12 @@ const NavLinks = [
     {
         id: 0,
         name: "Market",
-        url: "/market",
+        url: "#!",
     },
     {
         id: 1,
         name: "Developer",
-        url: "/developer",
+        url: "#!",
     },
 ] as NavLinksTypes[];
 
