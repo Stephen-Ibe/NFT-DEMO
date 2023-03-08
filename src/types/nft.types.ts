@@ -34,7 +34,7 @@ type NFTTraitType = {
 
 type NFTCreatorType = {
     profile_img_url: string;
-    user: null;
+    user: null | { username: string };
     config: string;
     address: string;
 };
@@ -48,6 +48,7 @@ type NFTCollectionType = {
     default_to_fiat: boolean;
     hidden: boolean;
     name: string;
+    description: string | null;
     telegram_url: null;
     external_url: string;
     banner_image_url: string;

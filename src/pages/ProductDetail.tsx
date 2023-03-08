@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Modal, Tooltip, useMantineTheme } from "@mantine/core";
+import { Button, Modal, Tooltip, useMantineTheme } from "@mantine/core";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { NFTDataType } from "../types";
 import { FallbackImg } from "../assets";
@@ -17,7 +17,7 @@ const ProductDetail = ({ close, nft }: Props) => {
             opened
             onClose={close}
             size="55rem"
-            withCloseButton={false}
+            title="NFT Details Page"
             overlayProps={{
                 color:
                     theme.colorScheme === "dark"
@@ -52,36 +52,69 @@ const ProductDetail = ({ close, nft }: Props) => {
                                 {nft?.collection?.name}
                             </a>
                         </p>
+                        <p className="text-sm">
+                            Created by{" "}
+                            <a
+                                href={nft?.collection?.external_url}
+                                className="text-blue-600"
+                            >
+                                {nft?.creator?.user?.username ?? "Anonymous"}
+                            </a>
+                        </p>
                     </div>
                 </div>
-                <div className="w-8/12 px-2">
-                    <p className="text-justify text-sm">{nft?.description}</p>
-                    {nft?.traits.length > 0 && (
+                <div className="w-8/12 px-2  flex flex-col justify-between">
+                    <div>
+                        <p className="text-justify text-base">
+                            {nft?.description ??
+                                "This NFT has no description attached to it."}
+                        </p>
+                        {nft?.traits.length > 0 && (
+                            <div className="my-4">
+                                <h4 className="font-semibold text-lg">
+                                    Traits
+                                </h4>
+                                <div className="grid grid-cols-3 gap-4 my-2">
+                                    {nft?.traits.map(trait => (
+                                        <div
+                                            className="border text-center p-4 rounded-lg"
+                                            key={trait.value}
+                                        >
+                                            <p className="uppercase text-xs">
+                                                {trait.trait_type}
+                                            </p>
+                                            <h5 className="capitalize font-semibold">
+                                                {trait.value}
+                                            </h5>
+                                            <p className="text-xs">
+                                                <span className="font-semibold">
+                                                    {trait.trait_count}
+                                                </span>{" "}
+                                                people have this trait
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                         <div className="my-4">
-                            <h4 className="font-semibold text-lg">Traits</h4>
-                            <div className="grid grid-cols-3 gap-4 my-2">
-                                {nft?.traits.map(trait => (
-                                    <div
-                                        className="border text-center p-4 rounded-lg"
-                                        key={trait.value}
-                                    >
-                                        <p className="uppercase text-xs">
-                                            {trait.trait_type}
-                                        </p>
-                                        <h5 className="capitalize font-semibold">
-                                            {trait.value}
-                                        </h5>
-                                        <p className="text-xs">
-                                            <span className="font-semibold">
-                                                {trait.trait_count}
-                                            </span>{" "}
-                                            people have this trait
-                                        </p>
-                                    </div>
-                                ))}
+                            <h4 className="font-semibold text-lg">
+                                Collection
+                            </h4>
+                            <div>
+                                <p>Collection Name: {nft?.collection?.name}</p>
+                                <p>
+                                    {nft?.collection?.description ??
+                                        "No Collection Description"}
+                                </p>
                             </div>
                         </div>
-                    )}
+                    </div>
+                    <div className="self-end space-x-4">
+                        <Button variant="outline" color="green">
+                            Purchase NFT
+                        </Button>
+                    </div>
                 </div>
             </section>
         </Modal>
